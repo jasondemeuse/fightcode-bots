@@ -34,7 +34,6 @@ Robot.prototype.onHitByBullet = function(ev) {
       robot.ahead(200);
     }
     robot.ahead(400);
-    robot.rotateCanno(360);
 };
 
 Robot.prototype.onRobotCollision = function(ev) {
@@ -43,5 +42,5 @@ Robot.prototype.onRobotCollision = function(ev) {
 
 Robot.prototype.onWallCollision = function(ev) {
     var robot = ev.robot;
-    robot.turnRight(10);
+    robot.turnRight(15);
 };

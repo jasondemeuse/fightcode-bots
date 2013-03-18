@@ -24,6 +24,8 @@ Robot.prototype.onScannedRobot = function(ev) {
         robot.rotateCannon(-25);
         robot.ahead(10);
         
+    } else if (robot.parentId > 1) {
+        robot.rotateCannon(360);
     } else {
         robot.ahead(100);
     }    
@@ -35,7 +37,7 @@ Robot.prototype.onHitByBullet = function(ev) {
     if (robot.availableDisappears == 1) {
         robot.disappear();
       robot.turnRight(90);
-      robot.ahead(300);
+      robot.ahead(200);
     }
     robot.turn(100);
     robot.ahead(150);
