@@ -1,8 +1,8 @@
 
 var Robot = function(robot) {
-    robot.ahead(12);
-    robot.rotateCannon(2);
-    robot.fire();
+    robot.clone();
+    robot.rotateCannon(360); 
+    robot.turn(360)
 
 };
 
@@ -18,14 +18,21 @@ Robot.prototype.onIdle = function(ev) {
 
 Robot.prototype.onScannedRobot = function(ev) {
     var robot = ev.robot;
-    robot.fire();
+    var scanned = ev.scannedRobot;
+    if(scanned.id !== robot.parentId && scanned.parentId !== robot.id) {
+        robot.fire();
+        robot.rotateCannon(-25);
+        robot.ahead(10);
+        
+    } else {
+        robot.ahead(100);
+    }    
 
 };
 
 Robot.prototype.onHitByBullet = function(ev) {
     var robot = ev.robot;
     robot.turn(90);
-    robot.rotateCannon(90);
     robot.ahead(100);
     robot.rotateCannon(180);
 };
