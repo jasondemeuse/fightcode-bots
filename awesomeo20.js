@@ -1,15 +1,14 @@
 
 var Robot = function(robot) {
     robot.clone();
-    robot.rotateCannon(360); 
 
 };
 
 Robot.prototype.onIdle = function(ev) {
     var robot = ev.robot;
-    robot.ahead(20);
-    robot.rotateCannon(360);
-    robot.turn(20);
+    robot.ahead(1);
+    robot.rotateCannon(20);
+    robot.turn(1);
 
 };
 
@@ -34,19 +33,18 @@ Robot.prototype.onHitByBullet = function(ev) {
       robot.turnRight(90);
       robot.ahead(200);
     };
-    robot.ahead(300);
-    robot.rotateCannon(ev.bearing);
+    robot.turnRight(5);
+    robot.ahead(20);
+    robot.turn(ev.bearing);
 };
 
 Robot.prototype.onRobotCollision = function(ev) {
     var robot = ev.robot;
-    robot.turnRight(40);
-    robot.ahead(30);
+    robot.back(30);
 };
 
 Robot.prototype.onWallCollision = function(ev) {
     var robot = ev.robot;
     robot.back(50);
-    robot.turn(-130);
-    robot.ahead(200);
+    robot.turn(130);
 };
