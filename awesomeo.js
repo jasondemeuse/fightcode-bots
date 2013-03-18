@@ -2,7 +2,7 @@
 var Robot = function(robot) {
     robot.clone();
     robot.rotateCannon(360); 
-    robot.turn(360)
+    robot.turn(360);
 
 };
 
@@ -32,6 +32,11 @@ Robot.prototype.onScannedRobot = function(ev) {
 
 Robot.prototype.onHitByBullet = function(ev) {
     var robot = ev.robot;
+    if (robot.availableDisappears == 1) {
+        robot.disappear();
+      robot.turnRight(90);
+      robot.ahead(300);
+    }
     robot.turn(100);
     robot.ahead(150);
     robot.rotateCannon(180);
