@@ -32,9 +32,11 @@ Robot.prototype.onScannedRobot = function(ev) {
 
 Robot.prototype.onHitByBullet = function(ev) {
     var robot = ev.robot;
-    robot.turn(90);
-    robot.ahead(100);
+    robot.turn(100);
+    robot.ahead(150);
     robot.rotateCannon(180);
+    robot.turn(40);
+    robot.rotateCannon(30);
 };
 
 Robot.prototype.onRobotCollision = function(ev) {
