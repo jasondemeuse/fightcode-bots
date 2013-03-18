@@ -15,23 +15,25 @@ Robot.prototype.onIdle = function(ev) {
 Robot.prototype.onScannedRobot = function(ev) {
     var robot = ev.robot;
     var scanned = ev.scannedRobot;
+    robot.stop();
     if(scanned.id !== robot.parentId && scanned.parentId !== robot.id) {
         robot.fire();
         robot.rotateCannon(-25);
-        robot.ahead(10);
+        robot.ahead(5);
         
     } else {
-        robot.ahead(100);
+        robot.ahead(10);
     }    
 
 };
 
 Robot.prototype.onHitByBullet = function(ev) {
     var robot = ev.robot;
+    robot.stop();
     if (robot.availableDisappears == 1) {
       robot.disappear();
       robot.turnRight(90);
-      robot.ahead(200);
+      robot.ahead(100);
     };
     robot.turnRight(5);
     robot.ahead(20);
