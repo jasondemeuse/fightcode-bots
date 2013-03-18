@@ -33,7 +33,7 @@ Robot.prototype.onHitByBullet = function(ev) {
         robot.disappear();
       robot.ahead(200);
     }
-    robot.ahead(400);
+    robot.turn(ev.bearing);
 };
 
 Robot.prototype.onRobotCollision = function(ev) {

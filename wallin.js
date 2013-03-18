@@ -1,7 +1,6 @@
 
 var Robot = function(robot) {
     robot.clone();
-    robot.ahead(12);
     robot.rotateCannon(2);
     robot.fire();
 
@@ -30,7 +29,7 @@ Robot.prototype.onScannedRobot = function(ev) {
 
 Robot.prototype.onHitByBullet = function(ev) {
     var robot = ev.robot;
-    robot.ahead();
+    robot.turn(ev.bearing);
 };
 
 Robot.prototype.onRobotCollision = function(ev) {
